@@ -13,13 +13,7 @@ TARGET = Binary_Name
 
 CFLAGS = -W -Werror -Wextra -Wall -I/include
 
-CFLAGS = -g3 -W -Werror -Wextra -Wall -I/include
-
 LDFLAGS= -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-network -lcsfml-audio
-
-TARGET = my_runner
-
-WAITING = sleep 0
 
 SRC = #Filepath
 
