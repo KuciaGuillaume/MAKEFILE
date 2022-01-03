@@ -9,13 +9,19 @@ CC = gcc
 
 AR = ar src
 
-TARGET = Nom_du_binaire
+TARGET = Binary_Name
 
 CFLAGS = -W -Werror -Wextra -Wall -I/include
 
-LDFLAGS = #A COMPLETER
+CFLAGS = -g3 -W -Werror -Wextra -Wall -I/include
 
-SRC = $(wildcard *.c)
+LDFLAGS= -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-network -lcsfml-audio
+
+TARGET = my_runner
+
+WAITING = sleep 0
+
+SRC = #Filepath
 
 OBJ = $(SRC:.c=.o)
 
@@ -23,14 +29,14 @@ OBJ = $(SRC:.c=.o)
 
 all : $(TARGET)
 	@echo "\033[34m ----------------------------"
-	@echo " | -> Plus rien à make {❕} |"
+	@echo " | \033[40m-> Plus rien à make {❕}\033[00m\033[34m |"
 	@echo " ----------------------------\033[0m"
 
 $(TARGET) : $(OBJ)
 	@echo "\033[1;92mCréation du binaire.... [$(TARGET)]\033[0m [⏳]"
 	@echo "\033[34m"
-	@$(AR) -o $(TARGET) $(OBJ) $(LDFLAGS)
-	@echo " | -> $(TARGET) WAS CREATED './$(TARGET)' [🆗]"
+	@$(CC) -o $(TARGET) $(OBJ) $(CFLAGS)
+	@echo " | -> \033[35m[$(TARGET)]\033[34m WAS CREATED './$(TARGET)' [🆗]"
 	@echo "\033[0m"
 	@echo "\033[1;92mLa création de l'éxécutable est terminé ! [✅]\033[0m"
 
